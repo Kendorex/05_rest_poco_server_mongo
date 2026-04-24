@@ -47,7 +47,7 @@ mongosh
 | ----- | ----------------------------------------------- | --------------------- |
 | POST  | /api/v1/users/register                          | Регистрация           |
 | GET   | /api/v1/users/search?login=xxx                  | Поиск по логину       |
-| GET   | /api/v1/users/search?firstName=xxx&lastName=xxx | Поиск по ФИО          |
+| GET   | /api/v1/users/search?firstName=xxx&lastName=xxx | Поиск по маске         |
 | GET   | /api/v1/cars                                    | Список доступных авто |
 | GET   | /api/v1/cars/search?class=xxx                   | Фильтр по классу      |
 | POST  | /api/v1/cars                                    | Добавление авто       |
