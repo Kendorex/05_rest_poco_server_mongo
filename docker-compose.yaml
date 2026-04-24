@@ -1,0 +1,28 @@
+services:
+  poco_template_server:
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    environment:
+      PORT: 8081
+      LOG_LEVEL: information
+      JWT_SECRET: change-me-in-production
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_DATABASE: car_rental_db
+    restart: on-failure
+
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+      - ./data.js:/docker-entrypoint-initdb.d/data.js:ro
+    environment:
+      MONGO_INITDB_DATABASE: car_rental_db
+
+volumes:
+  mongodata:
